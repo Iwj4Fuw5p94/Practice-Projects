@@ -1,0 +1,21 @@
+<div class="card">
+<table class="table">
+    <tr>
+        <th>playerName</th>
+        <th>jerseyNumber</th>
+        <th>Role</th>
+        <th>totalMatches</th>
+        <th>Country</th>
+        <th>playerDescription</th>
+    </tr>
+    <tr *ngFor="let player of player">
+        <td>{{player.playerName}}</td>
+        <td>{{player.jerseyNumber}}</td>
+        <td>{{player.role}}</td>
+        <td>{{player.totalmatches}}</td>
+        <td>{{player.country}}</td>
+        <td>{{player.playerDescription}}</td>
+    </tr>
+</table>
+</div>
+

@@ -1,0 +1,68 @@
+<!-- 
+  <form [formGroup]="searchform" (ngSubmit)="OnSubmit()" >
+    <div>
+        <label for="country">Player Name</label>
+        <input id="country" formControlName="country" type="text">
+      </div>
+      <button type="submit" [disabled]="searchform.invalid">Search Player</button>
+
+    </form>
+
+    <div *ngIf="">
+
+    </div> -->
+
+  <!-- <div *ngIf="players">
+    <h2>{{ players.playerName}} Details</h2>
+    
+    <ul>
+      <li><strong>Jersey Number:</strong> {{ player.jerseyNumber }}</li>
+      <li><strong>Total Matches:</strong> {{ player.totalmatches }}</li>
+      <li><strong>Country:</strong> {{ player.country }}</li>
+      <li><strong>Team Name:</strong> {{ player.teamname }}</li>
+      <li><strong>Description:</strong> {{ player.playerDescription }}</li>
+    </ul>
+  </div> -->
+
+  <!-- <form [formGroup]="searchform" (ngSubmit)="onSubmit()">
+    <label for="country">Enter the country</label>
+    <input type="text" name="" id="country" placeholder="Enter the name" formControlName="country">
+    <button class="btn-btn-primary">submit</button>
+  </form> -->
+
+
+  <!-- <h2>Total Matches by Country</h2>
+<div>
+  <label for="countryInput">Enter Country:</label>
+  <input type="text" id="countryInput" [(ngModel)]="country" name="country" required minlength="2" maxlength="50" #countryInputRef="ngModel">
+  <span *ngIf="countryInputRef.invalid && (countryInputRef.dirty || countryInputRef.touched)" class="error">
+    <span style="color: brown;" *ngIf="countryInputRef.errors?.['required']">Country is required. </span>
+    <span style="color: red;" *ngIf="countryInputRef.errors?.['minlength']">Country must be at least 2 characters long. </span>
+    <span style="color: red;" *ngIf="countryInputRef.errors?.['maxlength']">Country cannot be more than 50 characters long. </span>
+  </span>
+  <button (click)="fetchTotalMatches()" [disabled]="countryInputRef.invalid">Get Total Matches</button>
+</div>
+<div *ngIf="totalMatches !== null">
+  <p>Total matches for {{ country }}: {{ totalMatches }}</p>
+</div> -->
+
+
+<form [formGroup]="searchform" (ngSubmit)="fetchTotalMatches()">
+  <div>
+    <label for="countryInput">Enter Country:</label>
+    <input type="text" id="countryInput" formControlName="country" required>
+    <div *ngIf="searchform.get('country')?.invalid && (searchform.get('country')?.dirty || searchform.get('country')?.touched)" class="error">
+      <span style="color: brown;" *ngIf="searchform.get('country')?.errors?.['required']">Country is required.</span>
+      <span style="color: red;" *ngIf="searchform.get('country')?.errors?.['minlength']">Country must be at least 2 characters long.</span>
+      <span style="color: red;" *ngIf="searchform.get('country')?.errors?.['maxlength']">Country cannot be more than 50 characters long.</span>
+    </div>
+    <button type="submit" [disabled]="searchform.invalid">Get Total Matches</button>
+  </div>
+</form>
+
+<div *ngIf="totalMatches !== null">
+  <p>Total matches for {{ searchform.get('country')?.value }}: {{ totalMatches }}</p>
+</div>
+
+
+

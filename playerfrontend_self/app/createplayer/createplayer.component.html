@@ -1,0 +1,33 @@
+<form [formGroup]="playerForm" (ngSubmit)="onSubmit()"> 
+  <div class="card">
+  <div class="form-group">
+    <label for="playerName">Enter The Name Of The Player</label>
+    <input type="text" class="form-control" id="playerName" formControlName="playerName" required="" aria-describedby="emailHelp" placeholder="Enter name">
+  </div>
+  <div class="form-group">
+    <label for="jerseyNumber">Enter The Jersey Number</label>
+    <input type="number" formControlName="jerseyNumber" class="form-control" id="jerseyNumber" placeholder="Enter The jerseyNumber">
+  </div>
+  <div class="form-group">
+    <label for="role">Enter The Role</label>
+    <input type="text" formControlName="role" id="role" class="form-control" placeholder="Enter The Role" >
+  </div>
+  <div class="form-group">
+    <label for="totalMatches">Enter The Total Matches</label>
+    <input type="number" formControlName="totalMatches" id="totalMatches" class="form-control" placeholder="Enter The totalMatches" >
+  </div>
+  <div class="form-group">
+    <label for="country">Enter The Country Name</label>
+    <input type="text" formControlName="country" id="country" class="form-control" placeholder="Enter The Country Name" >
+  </div>
+  <div class="form-group">
+    <label for="teamName">Enter The Team Name</label>
+    <input type="text" formControlName="teamName" id="teamName" class="form-control" placeholder="Enter The Team Name" >
+  </div>
+  <div class="form-group">
+    <label for="playerDescription">Enter The Description</label>
+    <input type="text" formControlName="playerDescription" id="playerDescription" class="form-control" placeholder="Enter The Description" >
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form>
