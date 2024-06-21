@@ -1,0 +1,30 @@
+<div class="container-fluid bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/add-event">Add Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/update-event">Update Event</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/get-list">View All Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/get-event">View All Events</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+<div class="container mt-4">
+    <h1 class="text-primary text-center mb-4">🎉 Event Management 🎉</h1>
+    <router-outlet></router-outlet>
+</div>

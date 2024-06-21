@@ -1,0 +1,23 @@
+<div class="container">
+    <h2>Get Event</h2>
+    <form [formGroup]="searchForm" (ngSubmit)="findid()">
+      <div class="form-group">
+        <label for="id">Event ID:</label>
+        <input formControlName="id" type="number" class="form-control" id="id" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Get Event</button>
+    </form>
+  
+    <div *ngIf="event" class="card mt-3">
+      <h3 class="card-header">Event Details:</h3>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">ID: {{ event.id }}</li>
+        <li class="list-group-item">Title: {{ event.title }}</li>
+        <li class="list-group-item">Description: {{ event.description }}</li>
+        <li class="list-group-item">Date: {{ event.date }}</li>
+        <li class="list-group-item">Location: {{ event.location }}</li>
+        <li class="list-group-item">Max Attendees: {{ event.maxAttendees }}</li>
+        <li class="list-group-item">Registration Fee: {{ event.registrationFee }}</li>
+      </ul>
+    </div>
+  </div>

@@ -1,0 +1,19 @@
+<div>
+    <button (click)="findAll()">Fetch Events</button>
+  </div>
+  
+  <div *ngIf="event">
+    <h2>Event List</h2>
+    <ul>
+      <li *ngFor="let evt of event">
+        <h3>{{ evt.title }}</h3>
+        <p><strong>ID:</strong> {{ evt.id }}</p>
+        <p><strong>Description:</strong> {{ evt.description }}</p>
+        <p><strong>Date:</strong> {{ evt.date }}</p>
+        <p><strong>Location:</strong> {{ evt.location }}</p>
+        <p><strong>Max Attendees:</strong> {{ evt.maxAttendees }}</p>
+        <p><strong>Registration Fee:</strong> {{ evt.registrationFee | currency }}</p>
+      </li>
+    </ul>
+  </div>
+  

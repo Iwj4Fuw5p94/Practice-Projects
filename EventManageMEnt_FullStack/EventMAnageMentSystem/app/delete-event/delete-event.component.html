@@ -1,0 +1,43 @@
+<!-- <p>delete-event works!</p>
+
+
+<div class="container">
+    <h2>Event Details</h2>
+
+    <form [formGroup]="searchForm" (ngSubmit)="DeleteEvent()">
+        <label for="eventId">Enter event Id</label>
+        <input type="text" id="eventId" placeholder="Enter the eventId" formControlName="eventId" required>
+        <button type="button">check</button>
+    </form>
+</div>
+<div *ngIf="searchForm.valid">
+
+</div> -->
+
+<!-- delete-event.component.html -->
+<div class="container">
+    <h2>Delete Event</h2>
+    <form [formGroup]="searchForm" (ngSubmit)="DeleteEvent()">
+      <div class="form-group">
+        <label for="evendId">Event ID:</label>
+        <input type="number" id="evendId" formControlName="evendId" class="form-control" placeholder="Enter event ID" required>
+        <!-- <div *ngIf="searchForm.controls['evendId'].invalid && (searchForm.controls['evendId'].dirty || searchForm.controls['evendId'].touched)" class="text-danger"> -->
+          <!-- <div *ngIf="searchForm.controls['evendId'].errors?.required">Event ID is required.</div>
+          <div *ngIf="searchForm.controls['evendId'].errors?.minlength">Event ID must be at least 3 characters long.</div> -->
+        </div>
+      <!-- </div> -->
+      <button type="submit" class="btn btn-danger">Delete Event</button>
+    </form>
+  </div>
+
+
+  <form [formGroup]="searchForm" (ngSubmit)="DeleteEvent()">
+    <div class="form-group">
+      <label for="eventId">Event ID:</label>
+      <input type="number" id="eventId" formControlName="eventId" class="form-control" placeholder="Enter event ID" required>
+      <!-- Add validation messages if needed -->
+    </div>
+    <button type="submit" class="btn btn-danger" [disabled]="searchForm.invalid">Delete Event</button>
+  </form>
+  
+  
