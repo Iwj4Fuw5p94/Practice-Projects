@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+            box-sizing: border-box;
+
+        }
+
+        html,
+        body {
+            height: 100vh;
+            width: 100vw;
+
+            /* scrollbar-width: none; */
+        }
+
+        /* Hide scrollbar for IE and Edge */
+
+        #main {
+            height: 100vh;
+            width: 100vw;
+            padding-top: 6vh;
+            /* padding: 6vw 0vw 6vw; */
+            background-color: white;
+
+        }
+
+        mat-icon:hover {
+            cursor: pointer;
+
+        }
+
+        #nav {
+            height: 10vh;
+            width: 100vw;
+            padding-left: 40px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: rgba(219, 172, 172, 0.3);
+        }
+
+        #slide-out-pannel {
+            height: 84vh;
+
+            position: absolute;
+            top: 16%;
+            left: 0;
+            bottom: 0;
+            padding-top: 30px;
+            width: 250px;
+            /* background-color:(135deg,#6dcece,#80ced6); */
+            background-color: #c1dfdf2c;
+            /* height: 100vh; */
+            border: 2px transparent;
+            transition: transform .3s ease-out;
+            z-index: 1000;
+            /* border-top-right-radius: 20px; */
+
+        }
+
+        #slide-out-pannel .slideout {
+            transform: translateY(-10%);
+        }
+
+        /* .slideout {
+        height: 300vh;
+            width: 17vw;
+            position: absolute;
+            margin-top: 4vh;
+            padding: 50px;
+            left: 2%;
+            border-radius: 18px;
+            background-color: rgb(113, 133, 194);
+        } */
+
+
+        a {
+            text-decoration: none;
+            font-size: x-large;
+            font-weight: 500;
+            cursor: pointer;
+            color: rgb(15, 13, 13);
+            padding: 30px 30px 30px 30px;
+            margin-bottom: 100px;
+        }
+
+        .highlighted-text {
+            font-size: 30px;
+            /* Adjust the font size as needed */
+            color: #0a14178c;
+            /* Adjust the color as needed */
+        }
+
+        #st {
+            margin-top: 20px;
+            margin-left: 10%;
+            height: 33vh;
+            width: 35vw;
+            border: 2px solid rgba(38, 30, 30, 0.071);
+            /* border: 2px solid rgb(252, 121, 121); */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: inset;
+            cursor: pointer;
+            transition: margin-top 0.5s ease-in-out;
+            /* Adjust the duration here */
+        }
+        ul{
+           margin-left: 12px;
+        }
+
+        #st:hover {
+            margin-top: 15px;
+            transform: scale(1.05);
+            box-shadow: rgba(228, 225, 228, 0.893) 35px 23px 10px -10px;
+            
+            /* Adjust the desired margin-top value */
+        }
+
+        #maincontainer {
+            /* display: flex; */
+            height: 80vh;
+            width: 100vw;
+
+            /* background-color: red; */
+        }
+
+        .btn {
+            position: absolute;
+            top: 860%;
+            /* bottom: 120%; */
+            left: 65%;
+            height: 43px;
+            width: 78px;
+        }
+
+        .buttin {
+            position: relative;
+            top: -173%;
+            left: 65%;
+            height: 43px;
+            width: 78px;
+        }
+
+        h3 {
+            font-size: medium;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="main">
+        <div id="nav">
+            <div class="toggle-button-row" (click)="togglemenu()">
+                <mat-icon>menu</mat-icon>
+            </div>
+            <div *ngIf="issidebar">
+                <div id="slide-out-pannel" (click)="hidesidebar()">
+                    <div class="slideout">
+                        <ul>
+                            <li> <a class="edit" routerLink="/dashboard">Dashboard</a></li>
+                            <li> <a class="edit" routerLink="/login">Login</a></li>
+                            <li> <a class="edit" routerLink="/ragistrationform">Ragistrationform</a></li>
+                            <li> <a class="edit" routerLink="/dashboard">Dashboard</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="maincontainer">
+            <div style="display: flex;">
+                <!--INCOME -->
+                <div id="st" class="container col-md-4">
+                    <span class="icon income-icon"><mat-icon>attach_money</mat-icon></span>
+                    <h2 class="mark">Income</h2>
+                    <hr style="width:90%;text-align:left;margin-left:0">
+                    <h3 class="">Last Few Month</h3>
+                    <div *ngFor="let i of lastmonthincomne">
+                        <li>{{i}}</li>
+                    </div><br>
+                    <hr style="width:90%;text-align:left;margin-left:0">
+
+                    <div class="month">
+                        <h3>Current Month <br> {{currentmonthincome}}</h3>
+                    </div>
+                    <div class="buttin">
+                        <a (click)="onincome()"><button type="button" class="btn btn-dark">Dark</button></a>
+                    </div>
+                </div>
+                <!-- EXPENSE -->
+                <div id="st" class="container col-md-4">
+                    <span class="icon income-icon"><mat-icon>attach_money</mat-icon></span>
+                    <h2 class="mark">EXPENSE</h2>
+                    <hr style="width:90%;text-align:left;margin-left:0">
+                    <h3 class="">Last Few Month</h3>
+                    <div *ngFor="let i of lastmonthexpense">
+                        <li>{{i}}</li>
+                    </div><br>
+                    <hr style="width:90%;text-align:left;margin-left:0">
+                    <div class="month">
+                        <h3>Current Month <br> {{currentmonthexpense}}</h3>
+                    </div>
+                    <div class="buttin">
+                        <a (click)="onexpense()"> <button type="button" class="btn btn-dark">Dark</button></a>
+                    </div>
+                </div>
+            </div>
+            <div style="display: flex;">
+                <!--To Do Transaction -->
+                <div id="st" class="container col-md-4">
+                    <span class="icon income-icon"><mat-icon>attach_money</mat-icon></span>
+                    <h2 class="mark">To Do Transaction</h2>
+                    <hr style="width:90%;text-align:left;margin-left:0">
+                    <h3 class="">Last Few Month</h3>
+                    <div *ngFor="let i of todotransaction">
+                        <ul>
+                            <li>{{i}}</li>
+                        </ul>
+                    </div><br>
+                    <hr style="width:90%;text-align:left;margin-left:0">
+
+                    <!-- <div class="month">
+                        <h3>Current Month <br> {{currentmonthincome}}</h3>
+                    </div> -->
+                    <div class="buttin">
+                        <a (click)="onincome()"><button type="button" class="btn btn-dark">Dark</button></a>
+                    </div>
+                </div>
+                <!-- Total amount -->
+                <div id="st" class="container col-md-4">
+                    <span class="icon income-icon"><mat-icon>attach_money</mat-icon></span>
+                    <h2 class="mark">Income</h2>
+                    <hr style="width:90%;text-align:left;margin-left:0">
+                    <!-- <h3 class="">Last Few Month</h3> -->
+                    <!-- <div *ngFor="let i of lastmonthincomne">
+                        <li>{{i}}</li>
+                    </div><br> -->
+                    <hr style="width:90%;text-align:left;margin-left:0">
+
+                    <div class="month">
+                        <h3>Current Month Income {{totalcurrentmonthincome}}</h3>
+                    </div>
+                    <div class="month">
+                        <h3>Current Month EXPENSE {{totalcurrentmonthexpense}}</h3>
+                    </div>
+                    
+                       <h2>current Month Saving {{totalincome}}</h2> 
+                      
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

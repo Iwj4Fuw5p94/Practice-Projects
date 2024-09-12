@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="main">
+        <div class="navbar navbar-dark bg-dark">
+            <h1 class="font">INCOME</h1>
+        </div>
+        <div class="main-container col-md-4">
+            <div class="container">
+                <form [formGroup]="income" (ngSubmit)="onsubmit()" class="input-form">
+                    <div class="mb-3 formControlName">
+                        <select formControlName="month" (change)="onchange($event)" class="form-control select-box">
+                            <option class="text" value="" disabled selected>Select a month</option>
+
+                            <option class="text" value="Janaury">Janaury</option>
+                            <option class="text" value="February">February</option>
+                            <option class="text" value="March">March</option>
+                        </select>
+                        <label class="select">
+                            Total Income For {{selectedmonth}}:${{calculateTotalIncome(selectedmonth)}}
+                        </label>
+                    </div>
+                    <div class="mb-2">
+                        <select formControlName="source" id="source" class="form-control select-box">
+                            <option class="text" value="" disabled selected>Source Of Income</option>
+                            <option class="text" value="Salary">Salary</option>
+                            <option class="text" value="Freelancing">Freelancing</option>
+                            <option class="text" value="Stock">Stock</option>
+                        </select>
+                        <select formControlName="Invesment" id="Invesment" class="form-control select-box">
+                            <option class="text" disabled selected>Invesment</option>
+                            <option class="text" value="RealState">RealState</option>
+                            <option class="text" value="Stock">Stock</option>
+                            <option class="text" value="Extra">Extra</option>
+                        </select>
+                        <input formControlName="amount" type="number" class="select" placeholder="Amount"
+                            name="quantity" id="quantity" min="1000" max="20000">
+                    </div>
+                    <button class="btn btn-primary" (click)="adddata()">Add</button>
+                </form>
+            </div>
+            <br>
+            <hr>
+            <div class="data">
+                <h3>Income List {{selectedmonth}}</h3>
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>Salary</th>
+                            <th>Invesment</th>
+                            <th>Source</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let i of getfilteredIncome()">
+                        <td>{{i.source}}</td>
+                        <td>{{i.Invesment}}</td>
+                        <td>{{i.Salary}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

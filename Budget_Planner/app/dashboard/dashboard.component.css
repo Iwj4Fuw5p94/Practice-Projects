@@ -1,0 +1,60 @@
+#main{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgb(173, 233, 233);
+}
+.navbar{
+    height: 15vh;
+    position: absolute;
+    margin-top: 2%;
+    width: 100vw;
+    background-color: rgba(26, 75, 59, 0.573);
+}
+.toggle{
+    height: 10%;
+    width: 10%;
+    cursor: pointer;
+    padding-left: 10vw;
+    background-color: aqua;
+}
+
+.active {
+    background-color: lightblue;
+  }
+  
+
+
+
+
+
+.dropdown-menu {
+    background-color: #767e86; 
+}
+
+.dropdown-item {
+    color: #ffffff;
+}
+
+.dropdown-item:hover {
+    background-color: #343a40; 
+}
+
+
+.navbar-toggler-icon {
+    background-color: #ffffff; 
+}
+
+
+.navbar-nav .nav-link {
+    color: #ffffff; 
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffffff; 
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+
+.navbar-nav .nav-item.active .nav-link {
+    font-weight: bold; 
+}
